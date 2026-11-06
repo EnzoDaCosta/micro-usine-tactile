@@ -1,0 +1,441 @@
+[
+  {
+    "id": "f_tab",
+    "type": "tab",
+    "label": "Moteurs 3 axes",
+    "disabled": false,
+    "info": "Dashboard de pilotage ESP32 (X, Y, Z) via MQTT"
+  },
+  {
+    "id": "f_broker",
+    "type": "mqtt-broker",
+    "name": "Mosquitto local",
+    "broker": "localhost",
+    "port": "1883",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  },
+  {
+    "id": "u_tab",
+    "type": "ui_tab",
+    "name": "Pilotage",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "g_x",
+    "type": "ui_group",
+    "name": "Axe X (2 moteurs)",
+    "tab": "u_tab",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "g_y",
+    "type": "ui_group",
+    "name": "Axe Y",
+    "tab": "u_tab",
+    "order": 2,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "g_z",
+    "type": "ui_group",
+    "name": "Axe Z",
+    "tab": "u_tab",
+    "order": 3,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "g_ctrl",
+    "type": "ui_group",
+    "name": "Contrôle",
+    "tab": "u_tab",
+    "order": 4,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "g_aff",
+    "type": "ui_group",
+    "name": "Affichage des directions",
+    "tab": "u_tab",
+    "order": 5,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "b_xav",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_x",
+    "order": 1,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "▲ X avant",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "X_AVANT",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 60,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "b_xar",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_x",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "▼ X arrière",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "X_ARRIERE",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 110,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "b_yga",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_y",
+    "order": 1,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "◀ Y gauche",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "Y_GAUCHE",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 160,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "b_ydr",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_y",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "▶ Y droite",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "Y_DROITE",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 210,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "b_zha",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_z",
+    "order": 1,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "▲ Z haut",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "Z_HAUT",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 260,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "b_zba",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_z",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "▼ Z bas",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "className": "",
+    "icon": "",
+    "payload": "Z_BAS",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 310,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "b_stop",
+    "type": "ui_button",
+    "z": "f_tab",
+    "name": "",
+    "group": "g_ctrl",
+    "order": 1,
+    "width": "6",
+    "height": "1",
+    "passthru": false,
+    "label": "■ STOP",
+    "tooltip": "",
+    "color": "#ffffff",
+    "bgcolor": "#E74C3C",
+    "className": "",
+    "icon": "",
+    "payload": "STOP",
+    "payloadType": "str",
+    "topic": "iot/moteurs/commande",
+    "topicType": "str",
+    "x": 150,
+    "y": 360,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "s_vit",
+    "type": "ui_slider",
+    "z": "f_tab",
+    "name": "",
+    "label": "Durée du mouvement (ms)",
+    "tooltip": "",
+    "group": "g_ctrl",
+    "order": 2,
+    "width": "6",
+    "height": "1",
+    "passthru": false,
+    "outs": "end",
+    "topic": "iot/moteurs/duree",
+    "topicType": "str",
+    "min": 100,
+    "max": 2000,
+    "step": 50,
+    "className": "",
+    "x": 150,
+    "y": 410,
+    "wires": [
+      [
+        "f_mqttout"
+      ]
+    ]
+  },
+  {
+    "id": "f_mqttout",
+    "type": "mqtt out",
+    "z": "f_tab",
+    "name": "Commandes vers ESP32",
+    "topic": "",
+    "qos": "1",
+    "retain": "false",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "f_broker",
+    "x": 520,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "f_mqttin",
+    "type": "mqtt in",
+    "z": "f_tab",
+    "name": "Statut de l'ESP32",
+    "topic": "iot/moteurs/status",
+    "qos": "1",
+    "datatype": "json",
+    "broker": "f_broker",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 160,
+    "y": 480,
+    "wires": [
+      [
+        "f_func",
+        "f_tpl"
+      ]
+    ]
+  },
+  {
+    "id": "f_func",
+    "type": "function",
+    "z": "f_tab",
+    "name": "Mise en forme du statut",
+    "func": "var d = msg.payload;\nif (typeof d !== 'object' || d === null) return null;\n\nvar dernier = null;\nif (d.axe && d.sens) {\n    var fleches = {AVANT:'▲', ARRIERE:'▼', GAUCHE:'◀', DROITE:'▶', HAUT:'▲', BAS:'▼'};\n    var f = fleches[d.sens] || '';\n    dernier = { payload: f + ' Axe ' + d.axe + ' : ' + d.sens + ' (' + d.duree + ' ms)' };\n}\n\nvar etat = { payload: (d.etat === 'MOUVEMENT') ? 'EN MOUVEMENT' : 'ARRÊTÉ' };\nreturn [dernier, etat];",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 520,
+    "wires": [
+      [
+        "t_dernier"
+      ],
+      [
+        "t_etat"
+      ]
+    ]
+  },
+  {
+    "id": "t_dernier",
+    "type": "ui_text",
+    "z": "f_tab",
+    "group": "g_aff",
+    "order": 2,
+    "width": "6",
+    "height": "1",
+    "name": "",
+    "label": "Dernier mouvement",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 660,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "t_etat",
+    "type": "ui_text",
+    "z": "f_tab",
+    "group": "g_aff",
+    "order": 3,
+    "width": "6",
+    "height": "1",
+    "name": "",
+    "label": "État",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 650,
+    "y": 545,
+    "wires": []
+  },
+  {
+    "id": "f_tpl",
+    "type": "ui_template",
+    "z": "f_tab",
+    "group": "g_aff",
+    "name": "Affichage directions",
+    "order": 1,
+    "width": "6",
+    "height": "3",
+    "format": "<style>\n.axe-ligne{display:flex;align-items:center;justify-content:space-between;margin:6px 0;padding:6px 12px;border-radius:10px;background:rgba(128,128,128,0.15)}\n.axe-nom{font-weight:bold;font-size:18px}\n.fl{font-size:18px;color:#999;min-width:110px;text-align:center;border-radius:8px;padding:4px}\n.fl.on{background:#27AE60;color:#fff}\n</style>\n<div class=\"axe-ligne\" ng-repeat=\"a in axes\">\n  <span class=\"fl\" ng-class=\"{on: a.dir===-1}\">{{a.neg}}</span>\n  <span class=\"axe-nom\">{{a.nom}}</span>\n  <span class=\"fl\" ng-class=\"{on: a.dir===1}\">{{a.pos}}</span>\n</div>\n<script>\n(function(scope){\n  scope.axes = [\n    {nom:'X', neg:'▼ Arrière', pos:'▲ Avant',  dir:0},\n    {nom:'Y', neg:'◀ Gauche',  pos:'▶ Droite', dir:0},\n    {nom:'Z', neg:'▼ Bas',     pos:'▲ Haut',   dir:0}\n  ];\n  scope.$watch('msg', function(msg){\n    if (!msg || !msg.payload) return;\n    var p = msg.payload;\n    scope.axes.forEach(function(a){ a.dir = 0; });\n    if (p.etat === 'MOUVEMENT') {\n      var idx  = {X:0, Y:1, Z:2}[p.axe];\n      var sens = {AVANT:1, ARRIERE:-1, DROITE:1, GAUCHE:-1, HAUT:1, BAS:-1}[p.sens];\n      if (idx !== undefined && sens !== undefined) { scope.axes[idx].dir = sens; }\n    }\n  });\n})(scope);\n</script>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 410,
+    "y": 470,
+    "wires": [
+      []
+    ]
+  }
+]
